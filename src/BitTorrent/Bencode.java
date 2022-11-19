@@ -1,13 +1,8 @@
 package BitTorrent;
 
-public class Bencode {
-    public Integer id;
+public interface Bencode {
 
-    public Bencode(Integer id){
-        this.id = id;
-    }
-
-    public void printSymbol(char c){
+    static void printSymbol(char c){
         System.out.println("Symbol: " + c);
     }
 }
