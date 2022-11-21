@@ -1,15 +1,10 @@
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
-import BitTorrent.Bencode;
-import BitTorrent.Options;
+import BitTorrent.*;
 import BitTorrent.UrlConnectionTracker;
 
 
@@ -36,7 +31,7 @@ public class Main {
         String infoBencode = "d6:lengthi"+length+"e4:name"+name.length()+":"+name+
                 "12:piece lengthi"+pieceLength+"e6pieces:"+pieces.length+":"+piecesStr+"e";
         byte[] info = infoBencode.getBytes(StandardCharsets.UTF_8);
-        String infoHashHex = Options.toSHA1(info);
+        String infoHashHex = SHA1.toSHA1(info);
         String infoHash = Options.getInfoHashForRequest(infoHashHex, "%"); // 06661137d3fabf9b27e75deb4d0a0906bbe789ad
 
 //        System.out.println("\n");
